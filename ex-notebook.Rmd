@@ -67,6 +67,11 @@ huxtable(broom::tidy(chisq.test(table(mtcars$am, mtcars$gear))))
 
 Vi starter med en RMarkdown notebook og vil til slutt konvertere den til andre formater.
 
+## Legger til litt tekst
+
+Legger til litt tekst for å prøve ut GitAhead.
+Dokumentet er åpnet i en ny gren startet fra GitAhead.
+
 ## Vivamus sagittis lacus vel augue laoreet rutrum faucibus. (Second level header)
 
 Plura mihi bona sunt, inclinet, amari petere vellent.
