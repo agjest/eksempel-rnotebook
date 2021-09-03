@@ -380,3 +380,16 @@ Foreløpig har vi bare generert html-dokumenter, men mye av poenget med `RMarkdo
 Bruk Knit/Preview menyen og generer pdf og MS Word versjoner.
 
 # Referanser
+
+::: {#refs}
+:::
+
+# Appendiks
+
+## Appendiks A
+
+Lagt til for å se at det virker.
+
+## Appendiks B
+
+Et lite appendiks til.
