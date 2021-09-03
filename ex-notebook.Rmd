@@ -42,13 +42,15 @@ Bare de referansene vi siterer i teksten vil bli lagt til referanselisten.
 RStudio vil selv endre litt i YAML, spesielt gjelder dette `output:` verdien som blir endret hvis vi velger et annet format i `Preview`menyen.
 
 ```{r setup, echo=FALSE}
+library(huxtable)
 library(pander)
+library(broom)
 ```
 
 ```{r lm_output}
 my_mod <- lm(dist ~ speed, data = cars)
 summary(my_mod)
-pander(my_mod)
+huxreg(my_mod)
 pander(summary(my_mod))
 ```
 
@@ -60,7 +62,7 @@ pander(density(runif(10)))
 
 ```{r warning = FALSE}
 chisq.test(table(mtcars$am, mtcars$gear))
-pander(chisq.test(table(mtcars$am, mtcars$gear)))
+huxtable(broom::tidy(chisq.test(table(mtcars$am, mtcars$gear))))
 ```
 
 Vi starter med en RMarkdown notebook og vil til slutt konvertere den til andre formater.
@@ -217,7 +219,7 @@ markup koden
     r_m = \sum_{i=1}^N w_i \cdot \bar{r}_i \quad, \beta_m = \sum_{i=1}^N w_i \cdot \beta_i
     $$
 
-Ønsker vi likninger over flere linjer kan vi bruke
+Ønsker vi likninger over flere linjer kan vi bruke (ser bare ut til å virke med \$\LaTeX \$)
 
     \begin{math}
     \begin{aligned}

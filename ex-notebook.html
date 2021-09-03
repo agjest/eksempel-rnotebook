@@ -229,6 +229,11 @@ pre code {
     fig_caption: true
     ---</code></pre>
 <p>Det en ser ovenfor her er den såkalte YAML headeren til documentet. Den bestemmer bl.a. hvilket format vi vil ha <code>RMarkdown</code> dokumentet konvertert til. Her settes også navnet på <code>Bibliography</code>filen vi vil benytte. Den inneholder vår samling av referanser. Bare de referansene vi siterer i teksten vil bli lagt til referanselisten. RStudio vil selv endre litt i YAML, spesielt gjelder dette <code>output:</code> verdien som blir endret hvis vi velger et annet format i <code>Preview</code>menyen.</p>
+<pre><code>## 
+## Attaching package: &#39;pander&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:huxtable&#39;:
+## 
+##     wrap</code></pre>
 <pre class="r"><code>my_mod &lt;- lm(dist ~ speed, data = cars)
 summary(my_mod)</code></pre>
 <pre><code>## 
@@ -249,42 +254,30 @@ summary(my_mod)</code></pre>
 ## Residual standard error: 15.38 on 48 degrees of freedom
 ## Multiple R-squared:  0.6511, Adjusted R-squared:  0.6438 
 ## F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
-<pre class="r"><code>pander(my_mod)</code></pre>
-<table style="width:88%;">
-<caption>Fitting linear model: dist ~ speed</caption>
-<colgroup>
-<col width="25%" />
-<col width="15%" />
-<col width="18%" />
-<col width="13%" />
-<col width="15%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center"> </th>
-<th align="center">Estimate</th>
-<th align="center">Std. Error</th>
-<th align="center">t value</th>
-<th align="center">Pr(&gt;|t|)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><strong>(Intercept)</strong></td>
-<td align="center">-17.58</td>
-<td align="center">6.758</td>
-<td align="center">-2.601</td>
-<td align="center">0.01232</td>
-</tr>
-<tr class="even">
-<td align="center"><strong>speed</strong></td>
-<td align="center">3.932</td>
-<td align="center">0.4155</td>
-<td align="center">9.464</td>
-<td align="center">1.49e-12</td>
-</tr>
-</tbody>
+<pre class="r"><code>huxreg(my_mod)</code></pre>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:lm_output">
+<col><col><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(1)</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-17.579 *&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(6.758)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">speed</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">3.932 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.416)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.651&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">logLik</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-206.578&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">AIC</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">419.157&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="2" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
 </table>
+
 <pre class="r"><code>pander(summary(my_mod))</code></pre>
 <table style="width:88%;">
 <colgroup>
@@ -346,11 +339,31 @@ summary(my_mod)</code></pre>
 </tbody>
 </table>
 <pre class="r"><code>cars[1:10,]</code></pre>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["speed"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["dist"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"4","2":"2","_rn_":"1"},{"1":"4","2":"10","_rn_":"2"},{"1":"7","2":"4","_rn_":"3"},{"1":"7","2":"22","_rn_":"4"},{"1":"8","2":"16","_rn_":"5"},{"1":"9","2":"10","_rn_":"6"},{"1":"10","2":"18","_rn_":"7"},{"1":"10","2":"26","_rn_":"8"},{"1":"10","2":"34","_rn_":"9"},{"1":"11","2":"17","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-2">
+<col><col><tr>
+<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">speed</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">dist</th></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">4</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">4</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">10</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">7</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">4</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">7</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">22</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">8</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">16</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">9</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">10</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">10</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">18</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">10</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">26</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">10</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">34</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">11</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">17</td></tr>
+</table>
+
 <pre class="r"><code>pander(cars[1:10,])</code></pre>
 <table style="width:22%;">
 <colgroup>
@@ -408,7 +421,7 @@ summary(my_mod)</code></pre>
 </table>
 <pre class="r"><code>pander(density(runif(10)))</code></pre>
 <table style="width:62%;">
-<caption>Kernel density of <em>runif(10)</em> (bandwidth: 0.1497062)</caption>
+<caption>Kernel density of <em>runif(10)</em> (bandwidth: 0.2052768)</caption>
 <colgroup>
 <col width="19%" />
 <col width="19%" />
@@ -424,33 +437,33 @@ summary(my_mod)</code></pre>
 <tbody>
 <tr class="odd">
 <td align="center"><strong>Min.</strong></td>
-<td align="center">-0.2718</td>
-<td align="center">0.003177</td>
+<td align="center">-0.5495</td>
+<td align="center">0.003889</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>1st Qu.</strong></td>
-<td align="center">0.142</td>
-<td align="center">0.122</td>
+<td align="center">-0.01131</td>
+<td align="center">0.1048</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>Median</strong></td>
-<td align="center">0.5558</td>
-<td align="center">0.6214</td>
+<td align="center">0.5268</td>
+<td align="center">0.5656</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>Mean</strong></td>
-<td align="center">0.5558</td>
-<td align="center">0.6033</td>
+<td align="center">0.5268</td>
+<td align="center">0.4639</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>3rd Qu.</strong></td>
-<td align="center">0.9697</td>
-<td align="center">1.057</td>
+<td align="center">1.065</td>
+<td align="center">0.7662</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>Max.</strong></td>
-<td align="center">1.384</td>
-<td align="center">1.215</td>
+<td align="center">1.603</td>
+<td align="center">0.8374</td>
 </tr>
 </tbody>
 </table>
@@ -460,29 +473,14 @@ summary(my_mod)</code></pre>
 ## 
 ## data:  table(mtcars$am, mtcars$gear)
 ## X-squared = 20.945, df = 2, p-value = 2.831e-05</code></pre>
-<pre class="r"><code>pander(chisq.test(table(mtcars$am, mtcars$gear)))</code></pre>
-<table style="width:56%;">
-<caption>Pearson’s Chi-squared test: <code>table(mtcars$am, mtcars$gear)</code></caption>
-<colgroup>
-<col width="23%" />
-<col width="6%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Test statistic</th>
-<th align="center">df</th>
-<th align="center">P value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">20.94</td>
-<td align="center">2</td>
-<td align="center">2.831e-05 * * *</td>
-</tr>
-</tbody>
+<pre class="r"><code>huxtable(broom::tidy(chisq.test(table(mtcars$am, mtcars$gear))))</code></pre>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-3">
+<col><col><col><col><tr>
+<th style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">statistic</th><th style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">p.value</th><th style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">parameter</th><th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">method</th></tr>
+<tr>
+<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">20.9</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.83e-05</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Pearson's Chi-squared test</td></tr>
 </table>
+
 <p>Vi starter med en RMarkdown notebook og vil til slutt konvertere den til andre formater.</p>
 <div id="vivamus-sagittis-lacus-vel-augue-laoreet-rutrum-faucibus.-second-level-header" class="section level2">
 <h2>Vivamus sagittis lacus vel augue laoreet rutrum faucibus. (Second level header)</h2>
@@ -593,7 +591,7 @@ r_m = \sum_{i=1}^N w_i \cdot \bar{r}_i, \quad
 <pre><code>$$
 r_m = \sum_{i=1}^N w_i \cdot \bar{r}_i \quad, \beta_m = \sum_{i=1}^N w_i \cdot \beta_i
 $$</code></pre>
-<p>Ønsker vi likninger over flere linjer kan vi bruke</p>
+<p>Ønsker vi likninger over flere linjer kan vi bruke (ser bare ut til å virke med $$)</p>
 <pre><code>\begin{math}
 \begin{aligned}
 a^2 + b^2 &amp;= c^2 \\ &amp;= 5
